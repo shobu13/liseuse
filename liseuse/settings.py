@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k9@_hzxy)acw&akn^-vqiuxb+5jf!0s+g)a=((7l3-cl7x%0qn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['liseuse.ezo2.eu']
 
 # Application definition
 
