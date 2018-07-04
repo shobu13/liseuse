@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load el_pagination_tags %}
+
+{% block title %}core - home{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% paginate 4 doujin_liste %}
+        {% get_pages %}
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="offset-md-4 col-md-4 text-center">
+                            {% show_pages %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for doujin in doujin_liste %}
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top img-fluid"
+                                         src="{{ doujin.doujinshiimage_set.all.0.image.url }}"
+                                         alt="{{ doujin.titre }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ doujin.titre }}</h5>
+                                        <a href="{% url 'core_lire' doujin.id 1 %}"
+                                           class="btn btn-primary">lire</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="row">
+                        <div class="offset-md-4 col-md-4 text-center">
+                            {% show_pages %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="offset-md-4 col-md-4 text-center">
+                <a href="{% url 'core_home' %}">acceuil</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
